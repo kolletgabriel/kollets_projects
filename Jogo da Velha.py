@@ -12,24 +12,36 @@ def print_board():
     print(50*'-')
 
 def player_X():
-    while True:
-        try:
-            p1 = str(input("Player 'X': "))
-            brd[int(p1)] = 'X'
+    while True: 
+        try: 
+            p1 = str(input("Player 'X': ")) 
+            while True:
+                if brd[int(p1)] == 'X' or brd[int(p1)] == 'O':
+                    print('Index already selected!\n')
+                    p1 = str(input("Player 'X': "))
+                else:
+                    brd[int(p1)] = 'X'
+                    break
         except:
             print("You must reference a valid index!\n")
-        else:
+        else: 
             print_board()
             win_conditions('X')
             drawn_conditions()
             player_O()
-            break
+            break 
 
-def player_O():
+def player_O(): 
     while True:
         try:
             p2 = str(input("Player 'O': "))
-            brd[int(p2)] = 'O'
+            while True:
+                if brd[int(p2)] == 'X' or brd[int(p2)] == 'O':
+                    print('Index already selected!\n')
+                    p2 = str(input("Player 'O': "))
+                else:
+                    brd[int(p2)] = 'O'
+                    break
         except:
             print("You must reference a valid index!\n")
         else:
